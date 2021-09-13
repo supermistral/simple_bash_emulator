@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Bash emulator</title>
+        <style type="text/css">
+            html, body {
+                padding: 0;
+                margin: 0;
+                top: 0;
+                left: 0;
+            }
+            body {
+                font-size: 15px;
+                font-family: 'Arial', 'Helvetica', sans-serif;
+                line-height: normal;
+                font-weight: normal;
+                word-break: break-word;
+            }
+            #wrapper {
+                min-height: 100vw;
+                width: 100%;
+            }
+            #content {
+                max-width: 1000px;
+                margin: 10% auto;
+            }
+            #terminal-header {
+                text-align: center;
+            }
+            #terminal-header pre {
+                display: inline;
+                padding: 0.5em 1em;
+                border-radius: 20px;
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+            #terminal-container {
+                height: 80ch;
+                width: 80ch;
+                margin: 2em auto;
+                background-color: #000;
+                color: #fff;
+                resize: both;
+            }
+            #terminal {
+                font-family: monospace, sans-serif;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+            }
+            #terminal.active {
+                display: block;
+            }
+            #terminal .input {
+                position: relative;
+                z-index: 100;
+                display: inline;
+                border: 0;
+                outline: 0;
+                background-color: #000;
+                min-height: 17px;
+                color: transparent;
+                text-shadow: 0 0 0 #fff;
+            }
+            #terminal .input:focus::after {
+                content: "";
+                position: absolute;
+                width: 9px;
+                height: 17px;
+                left: 100%;
+                bottom: 0;
+                background-color: green;
+                animation: cursor 1s step-end infinite;
+            }
+            #terminal div {
+                min-height: 1em;
+            }
+            @keyframes cursor {
+                from, to { background-color: transparent; }
+                50% { background-color: green; }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="content">
+                <div id="terminal-header">
+                    <h1>Bash emulator</h1>
+                    <h3>type <span><pre>vshell &lt;pathToArchive.zip&gt;</pre></span></h3>
+                </div>
+                <div id="terminal-container">
+                    <div id="terminal" tabindex="0"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            const { windowLoadHandler } = require('./index.js');
+            windowLoadHandler();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "bash_emulator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "electron.js",
+  "scripts": {
+    "start": "electron ./src/electron.js",
+    "pack": "electron-builder --dir",
+    "build": "electron-builder -wl"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^14.0.0",
+    "electron-builder": "^22.11.7"
+  },
+  "build": {
+    "appId": "com.electron.app",
+    "extraMetadata": {
+      "main": "./src/electron.js"
+    },
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "bash_emulator.exe"
+    }
+  },
+  "dependencies": {
+    "jszip": "^3.7.1",
+    "node-stream-zip": "^1.15.0"
+  }
+}
